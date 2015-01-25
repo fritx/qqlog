@@ -1,0 +1,26 @@
+{
+  "name": "qqlog",
+  "version": "0.0.1",
+  "description": "qq命令行",
+  "keywords": [
+    "qq",
+    "cli",
+    "client",
+    "log",
+    "webqq",
+    "wqq"
+  ],
+  "repository": "git@github.com:fritx/qqlog.git",
+  "bin": {
+    "qqlog": "bin/qqlog.js"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "cli-color": "^0.3.2",
+    "debug": "^2.1.1",
+    "express": "^4.11.1",
+    "lodash": "^2.4.1",
+    "prompt": "^0.2.14",
+    "wqq": "0.0.1"
+  }
+}
