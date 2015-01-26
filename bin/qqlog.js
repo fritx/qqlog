@@ -27,7 +27,7 @@ async.waterfall([
   function (next) {
     prompt.get(['account'], function (e, d) {
       if (!d) return exit()
-      qq.getVcode(d.account, function (e, buffer) {
+      qq.getVcode(d.account || '', function (e, buffer) {
         next(e, buffer)
       })
     })
@@ -56,7 +56,7 @@ async.waterfall([
   }
 ], function (e, d) {
   if (!d) return exit()
-  qq.login(d.password, d.vcode, function (e, d) {
+  qq.login(d.password || '', d.vcode || '', function (e, d) {
     qqReady(d)
   })
 })
@@ -69,6 +69,7 @@ function qqReady(d) {
   qq.getSelfInfo(function (e, d) {
     console.log(green('登录成功') + ' ' + magenta(d.nick))
     qq.on('disconnect', function () {
+      console.log(red('连接断开'))
       exit()
     })
     qq.on('message', function (d) {
@@ -79,25 +80,31 @@ function qqReady(d) {
 }
 
 function outputMsg(m) {
-  debug('接收消息', m)
+  debug('显示消息', m)
+  var nick = m.send_gnick || m.send_mark || m.send_nick
   var str = _.compact([
-    gray(timeStr(m.time * 1000)),
+    gray(m.time ? timeStr(m.time * 1000) : m.timestr),
     m.group_name ? cyan(m.group_name.trim()) :
       m.discu_name ? cyan(m.discu_name.trim()) :
       gray('私聊'),
-    magenta(('' + (m.send_gnick || m.send_mark ||
-      m.send_nick || m.send_account || '-')).trim()) ,
-    gray(m.content.map(function (chunk) {
-      if (typeof chunk === 'string') return chunk.replace(/[\r\n]+/g, '  ')
-      if (chunk[0] === 'face') return mapFace(chunk[1])
-      if (chunk[0] === 'cface') return '::' + chunk[1] + '::'
-    }).join('').replace(/\s+$/, ''))
+    nick ? magenta(nick.trim()) :
+      m.anonymous ? gray('匿名') :
+      m.send_account ? gray(('' + m.send_account).trim()) :
+      gray('-'),
+    m.file ? gray('::::' + m.file + '::::') :
+      gray(m.content.map(function (chunk) {
+        if (typeof chunk === 'string') {
+          return chunk.replace(/\s*[\r\n]+\s*/g, '↵ ')
+        }
+        if (chunk[0] === 'face') return mapFace(chunk[1])
+        if (chunk[0] === 'cface') return '::' + chunk[1] + '::'
+      }).join('').trim() || '-')
   ]).join('  ')
   console.log(str)
 }
 
 function exit() {
-  console.log(clc.bol(-1))
+  //console.log(clc.bol(-1))
   process.exit()
 }
 
