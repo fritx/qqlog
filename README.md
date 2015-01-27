@@ -7,7 +7,7 @@ $ npm install --global qqlog
 $ qqlog
 ```
 
-![ ](pic/2015-01-25 19:35:56屏幕截图.png)
+![截屏](pic/2015-01-25 19:35:56屏幕截图.png)
 
 ## 有什么用
 

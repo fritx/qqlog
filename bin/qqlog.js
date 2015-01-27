@@ -98,7 +98,7 @@ function outputMsg(m) {
         }
         if (chunk[0] === 'face') return mapFace(chunk[1])
         if (chunk[0] === 'cface') return '::' + chunk[1] + '::'
-      }).join('').trim() || '-')
+      }).join(' ').trim() || '-')
   ]).join('  ')
   console.log(str)
 }
