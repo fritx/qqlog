@@ -5,9 +5,11 @@
 ```
 $ npm install --global qqlog
 $ qqlog
+account> xxxxxxxxx
+password> xxxxxxxxxxxx
 ```
 
-![截屏](pic/2015-01-28 21:33:49屏幕截图.png)
+<img src="https://github.com/fritx/qqlog/raw/dev/pic/2015-01-28_21.33.49.png">
 
 ## 有什么用
 
