@@ -64,6 +64,8 @@ async.waterfall([
 function qqReady(d) {
   if (!d) {
     console.log(red('登录失败'))
+    console.log(red('登录信息不正确 或需要关闭设备锁'))
+    console.log(red('http://jingyan.baidu.com/article/60ccbceb005c4c64cab197d8.html'))
     return exit()
   }
   qq.getSelfInfo(function (e, d) {

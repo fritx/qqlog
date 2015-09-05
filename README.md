@@ -9,7 +9,7 @@ account> xxxxxxxxx
 password> xxxxxxxxxxxx
 ```
 
-<img src="https://github.com/fritx/qqlog/raw/dev/pic/2015-01-28_21.33.49.png">
+<img src="https://raw.githubusercontent.com/fritx/qqlog/dev/pic/2015-01-28_21.33.49.png">
 
 ## 有什么用
 
@@ -20,4 +20,8 @@ password> xxxxxxxxxxxx
 
 ## 祭逝去的webqq
 
-<http://www.pingwest.com/bye-web-qq/> 愿协议用在
+［WebQQ就要关闭了，如果用过就来道声再见吧](http://www.pingwest.com/bye-web-qq/) 愿协议用在
+
+## 关闭qq设备锁 才能正常登录
+
+[百度经验 手机qq设备锁怎么解除](http://jingyan.baidu.com/article/60ccbceb005c4c64cab197d8.html)
