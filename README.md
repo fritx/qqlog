@@ -20,7 +20,7 @@ password> xxxxxxxxxxxx
 
 ## 祭逝去的webqq
 
-［WebQQ就要关闭了，如果用过就来道声再见吧](http://www.pingwest.com/bye-web-qq/) 愿协议用在
+[WebQQ就要关闭了，如果用过就来道声再见吧](http://www.pingwest.com/bye-web-qq/) 愿协议用在
 
 ## 关闭qq设备锁 才能正常登录
 
