@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 var QQ = require('wqq')
+var qqface = require('qqface')
 var prompt = require('prompt')
 var express = require('express')
 var async = require('async')
@@ -111,7 +112,7 @@ function exit() {
 }
 
 function mapFace(n) {
-  return ':' + n + ':'
+  return '[' + qqface.textFromCode(n) + ']'
 }
 function timeStr(t) {
   return new Date(t).toString().match(/\d+:\d+/)[0]
