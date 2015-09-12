@@ -57,22 +57,25 @@ async.waterfall([
   }
 ], function (e, d) {
   if (!d) return exit()
-  qq.login(d.password || '', d.vcode || '', function (e, d) {
-    qqReady(d)
+  qq.login(d.password || '', d.vcode || '', function (e, d, errmsg) {
+    qqReady(d, errmsg)
   })
 })
 
-function qqReady(d) {
+function qqReady(d, errmsg) {
   if (!d) {
-    console.log(red('登录失败'))
-    console.log(red('登录信息不正确 或需要关闭设备锁'))
-    console.log(red('http://jingyan.baidu.com/article/60ccbceb005c4c64cab197d8.html'))
+    console.log(red(errmsg || '登录信息不正确，或需要关闭设备锁？'))
+    console.log(red('了解更多 https://github.com/fritx/qqlog'))
     return exit()
   }
   qq.getSelfInfo(function (e, d) {
     console.log(green('登录成功') + ' ' + magenta(d.nick))
     qq.on('disconnect', function () {
-      console.log(red('连接断开'))
+      console.log(red('连接已断开 请重新登录'))
+    })
+    qq.on('kick', function () {
+      console.log(red('您的帐号在另一地点登录，您被迫下线。'))
+      console.log(red('如果这不是您本人的操作，那么您的密码很可能已泄露。'))
       exit()
     })
     qq.on('message', function (d) {
