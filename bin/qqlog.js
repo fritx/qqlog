@@ -104,6 +104,7 @@ function outputMsg(m) {
         }
         if (chunk[0] === 'face') return mapFace(chunk[1])
         if (chunk[0] === 'cface') return '::' + chunk[1] + '::'
+        if (chunk[0] === 'offpic') return '::图片::'
       }).join(' ').trim() || '-')
   ]).join('  ')
   console.log(str)

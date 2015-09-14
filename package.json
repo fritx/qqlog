@@ -1,6 +1,6 @@
 {
   "name": "qqlog",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "qq命令行",
   "keywords": [
     "qq",
@@ -22,6 +22,6 @@
     "lodash": "^2.4.1",
     "prompt": "^0.2.14",
     "qqface": "0.0.3",
-    "wqq": "0.0.9-1"
+    "wqq": "0.0.10"
   }
 }
